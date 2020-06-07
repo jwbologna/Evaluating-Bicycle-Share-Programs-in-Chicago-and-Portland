@@ -9,6 +9,7 @@ jwbologna@uchicago.edu
 
 #### Background and Overview
 Public bicycle sharing systems have been around since 1965, when a small number of unlocked white bicycles were distributed throughout Amsterdam for use by the public. This first experiment failed, as most of the bicycles were quickly stolen or vandalized, but bicycle sharing programs have since spread across the globe, becoming significantly larger and more advanced. Today the largest system, in Wuhan, China, has over 100,000 bicycles. These systems are seen by many as a way to encourage active transport, which has health benefits for riders, is environmentally friendly, and relieves congestion, all without requiring substantial public funding.  
+
 Bicycle sharing systems may seem like a great idea at face value, but it is not clear that they operate as an efficient form of public transportation. The bicycles are often heavy and have limited docking locations, making riding a personal bicycle a more practical and attractive option for many. And in cities with efficient public transit systems, it might make more sense to ride a train or bus than to rent a bicycle. Municipal governments usually have a very limited budget for transportation, so knowing whether bicycle sharing systems are a genuinely useful mode of transit to work or just a novelty for tourists could be incredibly useful for policymakers. 
 
 #### Goals & Objectives

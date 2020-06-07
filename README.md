@@ -2,17 +2,17 @@
 GIS III Spring 2020 Final Project
 
 #### Authorship Details
-Justin Bologna
-University of Chicago, Class of 2022
-Environmental and Urban Studies, Public Policy Studies, and Geographical Sciences
+Justin Bologna  
+University of Chicago, Class of 2022  
+Environmental and Urban Studies, Public Policy Studies, and Geographical Sciences  
 jwbologna@uchicago.edu
 
 #### Background and Overview
-Public bicycle sharing systems have been around since 1965, when a small number of unlocked white bicycles were distributed throughout Amsterdam for use by the public. This first experiment failed, as most of the bicycles were quickly stolen or vandalized, but bicycle sharing programs have since spread across the globe, becoming significantly larger and more advanced. Today the largest system, in Wuhan, China, has over 100,000 bicycles. These systems are seen by many as a way to encourage active transport, which has health benefits for riders, is environmentally friendly, and relieves congestion, all without requiring substantial public funding. 
+Public bicycle sharing systems have been around since 1965, when a small number of unlocked white bicycles were distributed throughout Amsterdam for use by the public. This first experiment failed, as most of the bicycles were quickly stolen or vandalized, but bicycle sharing programs have since spread across the globe, becoming significantly larger and more advanced. Today the largest system, in Wuhan, China, has over 100,000 bicycles. These systems are seen by many as a way to encourage active transport, which has health benefits for riders, is environmentally friendly, and relieves congestion, all without requiring substantial public funding.  
 Bicycle sharing systems may seem like a great idea at face value, but it is not clear that they operate as an efficient form of public transportation. The bicycles are often heavy and have limited docking locations, making riding a personal bicycle a more practical and attractive option for many. And in cities with efficient public transit systems, it might make more sense to ride a train or bus than to rent a bicycle. Municipal governments usually have a very limited budget for transportation, so knowing whether bicycle sharing systems are a genuinely useful mode of transit to work or just a novelty for tourists could be incredibly useful for policymakers. 
 
 #### Goals & Objectives
-In this project, I examine the bicycle sharing systems in Chicago (Divvy) and Portland, Oregon (BIKETOWN). Both have extensive bikeshare programs with docking stations both downtown and in residential neighborhoods. By comparing a large city with a highly developed transit system and a full metro to a smaller one with less transit availability, we may be able to determine if transit coverage affects bikeshare usage. Specifically, this project accomplishes the following:
+In this project, I examine the bicycle sharing systems in Chicago (Divvy) and Portland, Oregon (BIKETOWN). Both have extensive bikeshare programs with docking stations both downtown and in residential neighborhoods. By comparing a large city with a highly developed transit system and a full metro to a smaller one with less transit availability, we may be able to determine if transit coverage affects bikeshare usage. Specifically, this project accomplishes the following:  
 *Retrieve and clean open source bicycle trip data for the year of 2019 in Chicago and Portland
 *Retrieve and clean open source zoning data to define primarily residential and primarily non-residential zones in each city
 *Define trips that are likely commuting trips based on their time, origin, and destination
@@ -20,14 +20,14 @@ In this project, I examine the bicycle sharing systems in Chicago (Divvy) and Po
 *Determine if these two proportions are statistically different
 
 #### Data Description
-Listed below are data sources, grouped by what memory object they were used to create. Exclamation marks (!) indicate newly calculated objects or fields. 
+Listed below are data sources, grouped by what memory object they were used to create. Exclamation marks (!) indicate newly calculated objects or fields.  
 1. PorSta
-  1. **Description:** All bicycle docks in Portland
-  1. **Variables:** "station_id"     "name"    "region_id"    "address"      "rental_methods" "geometry"  
-  1. **Temporal resolution:** N/A
-  1. **Spatial Resolution:** Point
-  1. **File format:** sf POINT
-  1. **Source:** 
+**Description:** All bicycle docks in Portland  
+**Variables:** "station_id"     "name"    "region_id"    "address"      "rental_methods" "geometry"  
+**Temporal resolution:** N/A  
+**Spatial Resolution:** Point  
+**File format:** sf POINT  
+**Source:**  
 BIKETOWN (2020). station_information [JSON]. Retrieved from http://biketownpdx.socialbicycles.com/opendata/station_information.json
 1. ChiSta
   1. **Description:** All bicycle docks in Chicago

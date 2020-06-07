@@ -12,7 +12,7 @@ Public bicycle sharing systems have been around since 1965, when a small number 
 Bicycle sharing systems may seem like a great idea at face value, but it is not clear that they operate as an efficient form of public transportation. The bicycles are often heavy and have limited docking locations, making riding a personal bicycle a more practical and attractive option for many. And in cities with efficient public transit systems, it might make more sense to ride a train or bus than to rent a bicycle. Municipal governments usually have a very limited budget for transportation, so knowing whether bicycle sharing systems are a genuinely useful mode of transit to work or just a novelty for tourists could be incredibly useful for policymakers. 
 
 #### Goals & Objectives
-In this project, I examine the bicycle sharing systems in Chicago (Divvy) and Portland, Oregon (BIKETOWN). Both have extensive bikeshare programs with docking stations both downtown and in residential neighborhoods. By comparing a large city with a highly developed transit system and a full metro to a smaller one with less transit availability, we may be able to determine if transit coverage affects bikeshare usage. Specifically, this project accomplishes the following:  
+In this project, I examine the bicycle sharing systems in Chicago (Divvy) and Portland, Oregon (BIKETOWN). Both have extensive bikeshare programs with docking stations both downtown and in residential neighborhoods. By comparing a large city with a highly developed transit system and a full metro to a smaller one with less transit availability, we may be able to determine if transit coverage affects bikeshare usage. Specifically, this project accomplishes the following:
 *Retrieve and clean open source bicycle trip data for the year of 2019 in Chicago and Portland
 *Retrieve and clean open source zoning data to define primarily residential and primarily non-residential zones in each city
 *Define trips that are likely commuting trips based on their time, origin, and destination
@@ -21,7 +21,7 @@ In this project, I examine the bicycle sharing systems in Chicago (Divvy) and Po
 
 #### Data Description
 Listed below are data sources, grouped by what memory object they were used to create. Exclamation marks (!) indicate newly calculated objects or fields.  
-1. PorSta
+1. PorSta  
 **Description:** All bicycle docks in Portland  
 **Variables:** "station_id"     "name"    "region_id"    "address"      "rental_methods" "geometry"  
 **Temporal resolution:** N/A  
@@ -29,74 +29,74 @@ Listed below are data sources, grouped by what memory object they were used to c
 **File format:** sf POINT  
 **Source:**  
 BIKETOWN (2020). station_information [JSON]. Retrieved from http://biketownpdx.socialbicycles.com/opendata/station_information.json
-1. ChiSta
-  1. **Description:** All bicycle docks in Chicago
-  1. **Variables:** "name"        "station_id"            "geometry"  "layer"! (Proportion of the station’s service area covered by residential development)    "res"!(Boolean variable indicating whether or not the staion’s service area is covered primarily by residential development)
-  1. **Temporal resolution:** N/A
-  1. **Spatial Resolution:** Point
-  1. **File format:** sf POINT
-  1. **Sources:** 
+1. ChiSta  
+**Description:** All bicycle docks in Chicago  
+**Variables:** "name"        "station_id"            "geometry"  "layer"! (Proportion of the station’s service area covered by residential development)    "res"!(Boolean variable indicating whether or not the staion’s service area is covered primarily by residential development)  
+**Temporal resolution:** N/A  
+**Spatial Resolution:** Point  
+**File format:** sf POINT  
+**Sources:**  
 Divvy (2020). station_information [JSON]. Retrieved from https://gbfs.divvybikes.com/gbfs/en/station_information.json
-1. PorTrips
-  1. **Description:** All trips within Portland’s bikeshare system during 2019
-  1. **Variables:** "StartLatitude"    "StartLongitude"  "StartDate"    "StartTime"     "EndLatitude"      "EndLongitude"     "EndDate" "EndTime"   "weekday"! (Boolean variable indicating whether or not the trip began on a day M-F)    "StartTD"! (Start time and date, reformatted)          "morning"! (Boolean variable indicating whether or not the trip began between between 5AM and 10AM)   "afternoon"! (Boolean variable indicating whether or not the trip began between between 3PM and 7PM)           "o_res_level"! (Proportion of the origin station’s service area covered by residential development)     "o_res"!(Boolean variable indicating whether or not the origin staion’s service area is covered primarily by residential development)     "d_res_level"! (Proportion of the destination station’s service area covered by residential development)           "d_res"!(Boolean variable indicating whether or not the destination staion’s service area is covered primarily by residential development)       "commute"! (Boolean variable indicating whether or not the trip can be classified as a commute trip)
-  1. **Temporal resolution:** Minute
-  1. **Spatial Resolution:** Point
-  1. **File format:** Dataframe
-  1. **Sources:**
-BIKETOWN (2019). 2019_01 [CSV]. Retrieved from https://s3.amazonaws.com/biketown-tripdata-public/2019_01.csv
-BIKETOWN (2019). 2019_02 [CSV]. Retrieved from https://s3.amazonaws.com/biketown-tripdata-public/2019_02.csv
-BIKETOWN (2019). 2019_03 [CSV]. Retrieved from https://s3.amazonaws.com/biketown-tripdata-public/2019_03.csv
-BIKETOWN (2019). 2019_04 [CSV]. Retrieved from https://s3.amazonaws.com/biketown-tripdata-public/2019_04.csv
-BIKETOWN (2019). 2019_05 [CSV]. Retrieved from https://s3.amazonaws.com/biketown-tripdata-public/2019_05.csv
-BIKETOWN (2019). 2019_06 [CSV]. Retrieved from https://s3.amazonaws.com/biketown-tripdata-public/2019_06.csv
-BIKETOWN (2019). 2019_07 [CSV]. Retrieved from https://s3.amazonaws.com/biketown-tripdata-public/2019_07.csv
-BIKETOWN (2019). 2019_08 [CSV]. Retrieved from https://s3.amazonaws.com/biketown-tripdata-public/2019_08.csv
-BIKETOWN (2020). 2019_09 [CSV]. Retrieved from https://s3.amazonaws.com/biketown-tripdata-public/2019_09.csv
-BIKETOWN (2020). 2019_10 [CSV]. Retrieved from https://s3.amazonaws.com/biketown-tripdata-public/2019_10.csv
-BIKETOWN (2020). 2019_11 [CSV]. Retrieved from https://s3.amazonaws.com/biketown-tripdata-public/2019_11.csv
-BIKETOWN (2020). 2019_12 [CSV]. Retrieved from https://s3.amazonaws.com/biketown-tripdata-public/2019_12.csv
-1. ChiTrips
-  1. **Description:** All trips within Chicago’s bikeshare system during 2019
-  1. **Variables:** "start_time"        "end_time"       "from_station_id"     "to_station_id"   "weekday"! (Boolean variable indicating whether or not the trip began on a day M-F)      "morning"! (Boolean variable indicating whether or not the trip began between between 5AM and 10AM)   "afternoon"! (Boolean variable indicating whether or not the trip began between between 3PM and 7PM)           "o_res_level"! (Proportion of the origin station’s service area covered by residential development)     "o_res"!(Boolean variable indicating whether or not the origin staion’s service area is covered primarily by residential development)     "d_res_level"! (Proportion of the destination station’s service area covered by residential development)           "d_res"!(Boolean variable indicating whether or not the destination staion’s service area is covered primarily by residential development)       "commute"! (Boolean variable indicating whether or not the trip can be classified as a commute trip)
-  1. **Temporal resolution:** Second
-  1. **Spatial Resolution:** Point
-  1. **File format:** Dataframe
-  1. **Sources:** 
-Divvy (2020). Divvy_Trips_2019_Q1 [CSV]. Retrieved from https://divvy-tripdata.s3.amazonaws.com/Divvy_Trips_2019_Q1.zip
-Divvy (2020). Divvy_Trips_2019_Q2 [CSV]. Retrieved from https://divvy-tripdata.s3.amazonaws.com/Divvy_Trips_2019_Q2.zip
-Divvy (2020). Divvy_Trips_2019_Q3 [CSV]. Retrieved from https://divvy-tripdata.s3.amazonaws.com/Divvy_Trips_2019_Q3.zip
-Divvy (2020). Divvy_Trips_2019_Q4 [CSV]. Retrieved from https://divvy-tripdata.s3.amazonaws.com/Divvy_Trips_2019_Q4.zip
-1. PorZon
-  1. **Description:** Zoning designations in the City of Portland
-  1. **Variables:** "Shape_Leng" "Shape_Area" "res"! (Boolean variable indicating whether or not a zone is primarily residential)  "geometry"  
-  1. **Temporal resolution:** N/A
-  1. **Spatial Resolution:** Zone polygon
-  1. **File format:** sf MULTIPOLYGON
-  1. **Sources:** 
+1. PorTrips  
+**Description:** All trips within Portland’s bikeshare system during 2019  
+**Variables:** "StartLatitude"    "StartLongitude"  "StartDate"    "StartTime"     "EndLatitude"      "EndLongitude"     "EndDate" "EndTime"   "weekday"! (Boolean variable indicating whether or not the trip began on a day M-F)    "StartTD"! (Start time and date, reformatted)          "morning"! (Boolean variable indicating whether or not the trip began between between 5AM and 10AM)   "afternoon"! (Boolean variable indicating whether or not the trip began between between 3PM and 7PM)           "o_res_level"! (Proportion of the origin station’s service area covered by residential development)     "o_res"!(Boolean variable indicating whether or not the origin staion’s service area is covered primarily by residential development)     "d_res_level"! (Proportion of the destination station’s service area covered by residential development)           "d_res"!(Boolean variable indicating whether or not the destination staion’s service area is covered primarily by residential development)       "commute"! (Boolean variable indicating whether or not the trip can be classified as a commute trip)  
+**Temporal resolution:** Minute  
+**Spatial Resolution:** Point  
+**File format:** Dataframe  
+**Sources:**  
+BIKETOWN (2019). 2019_01 [CSV]. Retrieved from https://s3.amazonaws.com/biketown-tripdata-public/2019_01.csv  
+BIKETOWN (2019). 2019_02 [CSV]. Retrieved from https://s3.amazonaws.com/biketown-tripdata-public/2019_02.csv  
+BIKETOWN (2019). 2019_03 [CSV]. Retrieved from https://s3.amazonaws.com/biketown-tripdata-public/2019_03.csv  
+BIKETOWN (2019). 2019_04 [CSV]. Retrieved from https://s3.amazonaws.com/biketown-tripdata-public/2019_04.csv  
+BIKETOWN (2019). 2019_05 [CSV]. Retrieved from https://s3.amazonaws.com/biketown-tripdata-public/2019_05.csv  
+BIKETOWN (2019). 2019_06 [CSV]. Retrieved from https://s3.amazonaws.com/biketown-tripdata-public/2019_06.csv  
+BIKETOWN (2019). 2019_07 [CSV]. Retrieved from https://s3.amazonaws.com/biketown-tripdata-public/2019_07.csv  
+BIKETOWN (2019). 2019_08 [CSV]. Retrieved from https://s3.amazonaws.com/biketown-tripdata-public/2019_08.csv  
+BIKETOWN (2020). 2019_09 [CSV]. Retrieved from https://s3.amazonaws.com/biketown-tripdata-public/2019_09.csv  
+BIKETOWN (2020). 2019_10 [CSV]. Retrieved from https://s3.amazonaws.com/biketown-tripdata-public/2019_10.csv  
+BIKETOWN (2020). 2019_11 [CSV]. Retrieved from https://s3.amazonaws.com/biketown-tripdata-public/2019_11.csv  
+BIKETOWN (2020). 2019_12 [CSV]. Retrieved from https://s3.amazonaws.com/biketown-tripdata-public/2019_12.csv  
+1. ChiTrips  
+**Description:** All trips within Chicago’s bikeshare system during 2019  
+**Variables:** "start_time"        "end_time"       "from_station_id"     "to_station_id"   "weekday"! (Boolean variable indicating whether or not the trip began on a day M-F)      "morning"! (Boolean variable indicating whether or not the trip began between between 5AM and 10AM)   "afternoon"! (Boolean variable indicating whether or not the trip began between between 3PM and 7PM)           "o_res_level"! (Proportion of the origin station’s service area covered by residential development)     "o_res"!(Boolean variable indicating whether or not the origin staion’s service area is covered primarily by residential development)     "d_res_level"! (Proportion of the destination station’s service area covered by residential development)           "d_res"!(Boolean variable indicating whether or not the destination staion’s service area is covered primarily by residential development)       "commute"! (Boolean variable indicating whether or not the trip can be classified as a commute trip)  
+**Temporal resolution:** Second  
+**Spatial Resolution:** Point  
+**File format:** Dataframe  
+**Sources:**  
+Divvy (2020). Divvy_Trips_2019_Q1 [CSV]. Retrieved from https://divvy-tripdata.s3.amazonaws.com/Divvy_Trips_2019_Q1.zip  
+Divvy (2020). Divvy_Trips_2019_Q2 [CSV]. Retrieved from https://divvy-tripdata.s3.amazonaws.com/Divvy_Trips_2019_Q2.zip  
+Divvy (2020). Divvy_Trips_2019_Q3 [CSV]. Retrieved from https://divvy-tripdata.s3.amazonaws.com/Divvy_Trips_2019_Q3.zip  
+Divvy (2020). Divvy_Trips_2019_Q4 [CSV]. Retrieved from https://divvy-tripdata.s3.amazonaws.com/Divvy_Trips_2019_Q4.zip  
+1. PorZon  
+**Description:** Zoning designations in the City of Portland  
+**Variables:** "Shape_Leng" "Shape_Area" "res"! (Boolean variable indicating whether or not a zone is primarily residential)  "geometry"  
+**Temporal resolution:** N/A  
+**Spatial Resolution:** Zone polygon  
+**File format:** sf MULTIPOLYGON  
+**Sources:**  
 City of Portland (2020). 6b26f2ccb71d431f9ce8f34fd8ec1558_16 [Shapefile]. Retrieved from https://opendata.arcgis.com/datasets/6b26f2ccb71d431f9ce8f34fd8ec1558_16.zip
-1. ChiZon
-  1. **Description:** Zoning designations in the City of Chicago
-  1. **Variables:** "shape_area" "shape_len" "res""! (Boolean variable indicating whether or not a zone is primarily residential)  "geometry" 
-  1. **Temporal resolution:** N/A
-  1. **Spatial Resolution:** Zone polygon
-  1. **File format:** sf MULTIPOLYGON
-  1. **Sources:** 
+1. ChiZon  
+**Description:** Zoning designations in the City of Chicago  
+**Variables:** "shape_area" "shape_len" "res""! (Boolean variable indicating whether or not a zone is primarily residential)  "geometry"  
+**Temporal resolution:** N/A  
+**Spatial Resolution:** Zone polygon  
+**File format:** sf MULTIPOLYGON  
+**Sources:**  
 City of Chicago (2020). Boundaries - Zoning Districts (current) [GeoJSON]. Retrieved from https://data.cityofchicago.org/api/geospatial/7cve-jgbp?method=export&format=GeoJSON
 1. PorVor!
-  1. **Description:** Voronoi Polygons indicating service areas for BIKETOWN docks
-  1. **Variables:** "ID"  "x"   "y"   "area"   "layer"! (Proportion of the service area covered by residential development)    "res"!(Boolean variable indicating whether or not the service area is covered primarily by residential development)    "geometry"
-  1. **Temporal resolution:** N/A
-  1. **Spatial Resolution:** Voronoi polygon
-  1. **File format:** sf POLYGON
-  1. **Sources:** N/A
+**Description:** Voronoi Polygons indicating service areas for BIKETOWN docks  
+**Variables:** "ID"  "x"   "y"   "area"   "layer"! (Proportion of the service area covered by residential development)    "res"!(Boolean variable indicating whether or not the service area is covered primarily by residential development)    "geometry"  
+**Temporal resolution:** N/A  
+**Spatial Resolution:** Voronoi polygon  
+**File format:** sf POLYGON  
+**Sources:** N/A  
 1. ChiVor!
-  1. **Description:** Voronoi Polygons indicating service areas for Divvy docks
-  1. **Variables:**   "ID"   "x"    "y"    "area"  "layer"! (Proportion of the station’s service area covered by residential development)    "res"!(Boolean variable indicating whether or not the station’s service area is covered primarily by residential development)"   "geometry"
-  1. **Temporal resolution:** N/A
-  1. **Spatial Resolution:** Voronoi polygon
-  1. **File format:** sf POLYGON
-  1. **Sources:** N/A
+**Description:** Voronoi Polygons indicating service areas for Divvy docks  
+**Variables:**   "ID"   "x"    "y"    "area"  "layer"! (Proportion of the station’s service area covered by residential development)    "res"!(Boolean variable indicating whether or not the station’s service area is covered primarily by residential development)"   "geometry"  
+**Temporal resolution:** N/A  
+**Spatial Resolution:** Voronoi polygon  
+**File format:** sf POLYGON  
+**Sources:** N/A  
 
 #### Results
 I found that in 2019, 9.98478% of Portland BIKETOWN trips and 13.52575% of Chicago Divvy trips were work commutes, as I have classified them. A chi-squared test for equality of proportions returned a chi-squared of 3240, corresponding to a p-value of < 2.2e-16. There is essentially total certainty that the difference in proportions is statistically significant. 

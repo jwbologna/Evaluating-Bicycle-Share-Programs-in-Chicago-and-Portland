@@ -101,10 +101,14 @@ City of Chicago (2020). Boundaries - Zoning Districts (current) [GeoJSON]. Retri
 
 #### Results
 I found that in 2019, 9.98478% of Portland BIKETOWN trips and 13.52575% of Chicago Divvy trips were work commutes, as I have classified them. A chi-squared test for equality of proportions returned a chi-squared of 3240, corresponding to a p-value of < 2.2e-16. There is essentially total certainty that the difference in proportions is statistically significant. 
+
 A higher proportion of bicycle share trips in Chicago were commutes to work than in Portland. This was contrary to my hypothesis that Chicago’s greater size and more extensive transit network would result in fewer Divvy trips to work. 
 
 #### Future Work
 The greatest methodological flaw in this project is the definition of “commute trips.” I had to infer which trips were commutes to work based only on their origin, destination, day of the week, and time of departure. This data is insufficient to accurately predict the purpose of a trip; countless workers live in areas defined as primarily non-residential and countless others work in areas defined as primarily residential. Many do not have traditional Monday-Friday, 9:00-5:00 hours. Additionally, white-collar jobs are the ones most likely to have these hours, and white-collar workers are more likely to have access to a car for commuting, or a personal bicycle. Thus, we may have missed a relatively large proportion of individuals who use bikeshare systems for commuting by focusing on traditional work hours. 
+
 A handful of Divvy stations are in Evanston, IL, just north of Chicago. I cut trips originating or terminating in Evanston from the trips data, since I did not examine Evanston’s zoning data, and thus was unable to classify those docks are residential or non-residential. Future work could incorporate Evanston’s zoning data to include those trips. 
+
 In terms of more technical refinements, network distance could be used to determine service areas for bicycle docks. The Voronoi polygons created for this project use Euclidian distance, which does not accurately represent movement in an urban setting; people must move along streets, between buildings. 
+
 In classifying service areas as primarily residential or non-residential, I converted the zoning data from polygon vector objects to raster objects. Since large rasters can be very computationally intensive, I used relatively small rasters (500x1000 for Chicago and 800x700 for Portland). This large resolution may have resulted in some accuracy issues, marking residential service areas non-residential and vice-versa. In the future, larger rasters could increase accuracy. Better yet, a method for summarizing vector data by other polygons would ensure complete accuracy. I was unable to find a method for doing this. 
